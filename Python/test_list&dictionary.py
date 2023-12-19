@@ -1,4 +1,4 @@
-# !/usr/bin/python
+#!/usr/bin/python
 
 myvar = 10
 mylist = [1,2,3,myvar]

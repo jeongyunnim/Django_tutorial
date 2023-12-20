@@ -1,4 +1,4 @@
-def say_hello(name):
-	print("hello {}".format(name))
+def say_hello(first_name, last_name):
+	print("hello {} {}".format(first_name, last_name))
  
-say_hello("jeseo")
+say_hello(first_name="Jeongyun", last_name="Seo")

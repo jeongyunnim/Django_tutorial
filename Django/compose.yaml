@@ -5,15 +5,17 @@ services:
   python:
     container_name: python
     image: python
+    pull_policy: never
+    build: ./python
     volumes:
-      - django-vol:/var
+      - dj-vol:/home/django-tutorial
 
 networks:
   jeseo-net:
     driver: bridge
 
 volumes:
-  django-vol:
+  dj-vol:
     driver: local
     driver_opts:
       o: bind

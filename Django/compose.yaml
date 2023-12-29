@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  python:
+    container_name: python
+    image: python
+    volumes:
+      - django-vol:/var
+
+networks:
+  jeseo-net:
+    driver: bridge
+
+volumes:
+  django-vol:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${VOL_PATH}

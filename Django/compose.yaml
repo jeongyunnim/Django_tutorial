@@ -9,6 +9,11 @@ services:
     build: ./python
     volumes:
       - dj-vol:/home/django-tutorial
+    ports:
+      - "8000:8000"
+    networks:
+      - jeseo-net
+    
 
 networks:
   jeseo-net:

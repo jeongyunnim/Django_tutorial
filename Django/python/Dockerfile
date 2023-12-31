@@ -2,7 +2,7 @@ FROM python:3.12
 
 RUN mkdir /home/django-tutorial
 
-# WORKDIR /home/django-tutorial
+WORKDIR /home/django-tutorial/jeseo_site
 
 RUN pip install --upgrade pip &&\
     pip install django

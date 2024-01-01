@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
-from django.urls import reverse
 
-def simple_view(request):
-    return render(request, 'jeseo_app/example.html')
+def example_view(request):
+    # 여기에 있는 jeseo_app은 현재 앱 디렉토리를 가리키지 않는다. jeseo_app/templates/jeseo_app/example.html
+    return render(request, 'jeseo_app/example.html') 

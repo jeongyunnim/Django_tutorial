@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse, HttpResponseNotFound
+from django.http.response import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
 
 articles = {
     'sports':"Sports page",
@@ -12,8 +12,14 @@ def news_view(request, topic):
         result = articles[topic]
         return (HttpResponse(result))
     except:
-        result = "Sorry, {} Page not found.".format(topic)
-        return (HttpResponseNotFound(result))
+        raise (Http404("404 GENERIC ERROR"))
+
+def news_num_view(request, num):
+    try:
+        topics = list(articles.keys())
+        return HttpResponseRedirect(topics[num])
+    except:
+        raise (Http404("404 GENERIC ERROR"))
 
 def plus_view(request, num1, num2):
     result = ("{} + {} = {}".format(num1, num2, num1 + num2))

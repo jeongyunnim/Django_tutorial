@@ -9,6 +9,6 @@ def variable_view(request):
         'first_name':'Jeong yun',
         'last_name':'Seo',
         'some_list':[1,2,3],
-        'some_dict':{'inside_key':'inside_value'}
+        'user_logged_in':False
     }
     return render(request,'jeseo_app/variable.html', context=my_var)

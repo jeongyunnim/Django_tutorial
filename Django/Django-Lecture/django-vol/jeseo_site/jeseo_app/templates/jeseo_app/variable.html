@@ -6,10 +6,18 @@
 </head>
 <body>
     <h1>VRIABLE.HTML</h1>
-    <ul> 
-    {% for item in some_list %}
-        <li>{{item}}</li>
+
+    <ul>
+    {% for num in some_list %}
+        {% if num == 1 %}
+            <li>one</li>
+        {% elif num == 2%}
+            <li>二</li>
+        {% else %}
+            <li>{{num}}</li>
+        {% endif %}
     {% endfor %}
     </ul>
+
 </body>
 </html>

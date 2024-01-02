@@ -4,7 +4,7 @@ DOCKER_VOLUME := $(shell docker volume ls -q)
 PWD := $(shell pwd)
 
 all:
-	sed -i '' 's|^\(VOL_PATH\).*|VOL_PATH=$(PWD)/python/django-vol|' ".env"
+	sed -i '' 's|^\(VOL_PATH\).*|VOL_PATH=$(PWD)/Django-Lecture/django-vol|' ".env"
 
 	docker compose up -d
 

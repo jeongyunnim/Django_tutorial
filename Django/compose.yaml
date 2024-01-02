@@ -6,7 +6,7 @@ services:
     container_name: python
     image: python
     pull_policy: never
-    build: ./python
+    build: ./Django-Lecture
     volumes:
       - dj-vol:/home/django-tutorial
     ports:

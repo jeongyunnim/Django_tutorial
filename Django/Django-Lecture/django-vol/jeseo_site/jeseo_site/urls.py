@@ -23,3 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('jeseo_app/', include('jeseo_app.urls')),
 ]
+
+handler404 = 'jeseo_site.views.my_custom_page_not_found_view'

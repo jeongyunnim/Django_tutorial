@@ -2,4 +2,13 @@
 
 {% block content %}
 <h1>DELETE</h1>
+<form action="" method="POST">
+	{% csrf_token %}
+	<h2>Please put a pk number to delete</h2>
+	<div class="form-group">
+		<lable for="pk">pk number: </lable>
+		<input class="form-control" type="text" id="pk" name="pk">
+	</div>
+	<input class="btn btn-primary" type="submit">
+</form>
 {% endblock content %}

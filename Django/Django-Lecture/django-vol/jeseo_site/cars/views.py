@@ -1,37 +1,20 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from . import models
+from .forms import ReviewForm
 
 # Create your views here.
 
-def list(request):
-    all_car = models.Car.objects.all()
-    context = {"all_cars":all_car}
-    return (render(request, 'cars/list.html', context=context))
+def rental_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
 
-def add(request):
-    if request.POST:
-        brand = request.POST['brand']
-        year = int(request.POST['year'])
-        models.Car.objects.create(brand=brand, year=year)
-        return (redirect(reverse("cars:list")))
+        if form.is_valid():
+            form.save()
+            print(form.cleaned_data)
+            return redirect(reverse('cars:thank_you'))
     else:
-        return (render(request, 'cars/add.html'))
+        form = ReviewForm()
+    return render(request, 'cars/rental_review.html', context={'form':form})
 
-def delete(request):
-    if request.POST:
-        pk = request.POST['pk']
-        try:
-            models.Car.objects.get(pk=pk).delete()
-            return (redirect('cars:list'))
-        except:
-            print("Error:  PK Not Found")
-            return (redirect('cars:list'))
-    else:
-         return (render(request, 'cars/delete.html'))
-
-def test(request):
-    brand = request.session.get('brand')
-    year = request.session.get('year')
-    data = {'brand':brand, 'year':year}
-    return (render(request, 'cars/test.html', {'data':data}))
+def thank_you(request):
+    return render(request, 'cars/thank_you.html')

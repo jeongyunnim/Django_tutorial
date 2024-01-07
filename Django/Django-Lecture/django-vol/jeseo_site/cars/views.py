@@ -5,7 +5,7 @@ from . import models
 # Create your views here.
 
 def list(request):
-    all_car = models.Cars.objects.all()
+    all_car = models.Car.objects.all()
     context = {"all_cars":all_car}
     return (render(request, 'cars/list.html', context=context))
 
@@ -13,7 +13,7 @@ def add(request):
     if request.POST:
         brand = request.POST['brand']
         year = int(request.POST['year'])
-        models.Cars.objects.create(brand=brand, year=year)
+        models.Car.objects.create(brand=brand, year=year)
         return (redirect(reverse("cars:list")))
     else:
         return (render(request, 'cars/add.html'))
@@ -22,13 +22,13 @@ def delete(request):
     if request.POST:
         pk = request.POST['pk']
         try:
-            models.Cars.objects.get(pk=pk).delete()
+            models.Car.objects.get(pk=pk).delete()
             return (redirect('cars:list'))
         except:
             print("Error:  PK Not Found")
             return (redirect('cars:list'))
     else:
-        return (render(request, 'cars/delete.html'))
+         return (render(request, 'cars/delete.html'))
 
 def test(request):
     brand = request.session.get('brand')

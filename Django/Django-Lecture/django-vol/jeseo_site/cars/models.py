@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Cars(models.Model):
+class Car(models.Model):
     # pk -> automatically generated
     brand = models.CharField(max_length=30)
     year = models.IntegerField()

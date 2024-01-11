@@ -15,13 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
-from . import views
+from django.urls import path, include
 
 urlpatterns = [
-    path('', views.home_view),
     path('admin/', admin.site.urls),
-    path('jeseo_app/', include('jeseo_app.urls')),
+    path('classroom/', include('classroom.urls')),
 ]
-
-handler404 = 'jeseo_site.views.my_custom_page_not_found_view'
